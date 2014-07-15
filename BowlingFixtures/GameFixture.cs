@@ -69,5 +69,36 @@ namespace BowlingFixtures
             bowlingGame.Roll(4);
             Assert.IsTrue(bowlingGame.GetScore() == 7, "Test Passed");
         }
+
+
+        [TestMethod]
+        public void ForFirstRollInFrame()
+        {
+            Game bowlingGame = new Game();
+            bowlingGame.Roll(3);
+            Assert.IsTrue(bowlingGame.GetScore() == 3, "Test Passed");
+        }
+
+        [TestMethod]
+        public void ForFirstStrikeAndNextSpare() {
+            Game bowlingGame = new Game();
+            bowlingGame.Roll(10);
+            bowlingGame.Roll(0);
+            bowlingGame.Roll(10);
+            Assert.IsTrue(bowlingGame.GetScore() == 30, "Test Passed");
+        }
+
+        [TestMethod]
+        public void ForMorePinsDroppedInSecondRoll()
+        {
+            Game bowlingGame = new Game();
+            try {
+                bowlingGame.Roll(8);
+                bowlingGame.Roll(7);
+            }
+            catch(Exception ex) {
+                Assert.IsTrue(bowlingGame.GetScore() == -1, "Test Passed");   
+            }
+        }
     }
 }
