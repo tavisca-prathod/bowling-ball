@@ -64,38 +64,10 @@ namespace BowlingFixtures
         [TestMethod]
         public void GeneratRolls()
         {
-            Game game = new Game();
-            game.Roll(1);
-            game.Roll(9);
-
-            game.Roll(1);
-            game.Roll(0);
-
-            game.Roll(3);
-            game.Roll(7);
-
-            game.Roll(2);
-            game.Roll(0);
-
-            game.Roll(5);
-            game.Roll(5);
-
-            game.Roll(3);
-            game.Roll(0);
-
-            game.Roll(7);
-            game.Roll(3);
-
-            game.Roll(4);
-            game.Roll(0);
-
-            game.Roll(9);
-            game.Roll(0);
-
-            game.Roll(0);
-            game.Roll(1);
-            Assert.IsTrue(game.GetScore() == 70, "Test Passed");
+            Game bowlingGame = new Game();
+            bowlingGame.Roll(3);
+            bowlingGame.Roll(4);
+            Assert.IsTrue(bowlingGame.GetScore() == 7, "Test Passed");
         }
-
     }
 }

@@ -49,7 +49,14 @@ namespace Bowling
 
         public int GetScore()
         {
-            if (isGameValid) {
+            if (PreviousRollScore != 0) {
+                Frame frame = new Frame(PreviousRollScore,0,PreviousRollScore);
+                TotalFramesPlayed.Add(frame);
+                PreviousRollScore = 0;
+            }
+
+            if (isGameValid && TotalFramesPlayed.Count >0)
+            {
                 int totalScore = 0;
                 for (int frameNumber = 0; frameNumber < TotalFramesPlayed.Count && frameNumber < 10; frameNumber++)
                 {
